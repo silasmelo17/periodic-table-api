@@ -2,6 +2,7 @@
 const { getFields, selectElements } = require('./structureSelect')
 
 
+
 const getConditionalThermal = async (req, res) => {
     const fields = getFields(req)
 
@@ -86,7 +87,6 @@ const getIntervalThermal = async (req, res) => {
         const selectTherminalElement = dict[typeInterval]
         return selectTherminalElement(signs, limit) || []
     }
-
 
 
 

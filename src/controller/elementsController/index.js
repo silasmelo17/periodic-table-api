@@ -3,6 +3,7 @@ const { getFields, selectElements } = require('./structureSelect')
 const { getConditionalThermal, getIntervalThermal } = require('./getTermalElements')
 
 
+
 const tryCatchHelper = callback => ( req, res, next ) => {
 	try {
 		callback( req, res, next )
@@ -17,8 +18,12 @@ async function getSpecific( req, res ) {
 	const { property, value } = req.params
 	const fields = getFields(req)
 
+	const dict = {
+		"chemicalSerie": "chemical_series.name"
+	}
+
 	const result = await selectElements(fields)
-		.where( property, value )
+		.where( dict[property] || `elements.${property}`, value )
 
 	res.json(result)
 }

@@ -4,7 +4,7 @@ const knex = require('../../database/index.js')
 
 
 const allowedFields = [ 
-    'id', 'name', 'symbol', 'atomicMass', 'atomicNumber', 
+    'name', 'symbol', 'atomicMass', 'atomicNumber', 
     'family', 'period', 'meltingPoint', 'boilingPoint', 
     'chemicalSeriesId', 'chemicalSerie',
 ]
@@ -23,12 +23,15 @@ const getAllowedFields = fields => fields.split(',')
 
 
 function getFields ( req ) {
+    
 	const { fields } = req.query
 	
 	return fields !== undefined 
 		? getAllowedFields(fields, allowedFields)
 		: ['elements.*', 'chemical_series.name as chemicalSerie']
 }
+
+
 
 
 
