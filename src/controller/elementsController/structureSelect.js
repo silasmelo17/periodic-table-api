@@ -23,7 +23,6 @@ const getAllowedFields = fields => fields.split(',')
 
 
 function getFields ( req ) {
-    
 	const { fields } = req.query
 	
 	return fields !== undefined 
