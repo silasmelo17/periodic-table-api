@@ -4,7 +4,7 @@ const routes = express.Router()
 
 
 
-const elementsController = require('./Controller/elementsController/index.js')
+const elementsController = require('./Controller/elementsController')
 const chemicalController = require('./Controller/chemicalController.js')
 
 
